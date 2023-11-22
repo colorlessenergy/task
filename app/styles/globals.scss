@@ -1,4 +1,5 @@
 @use "./variables.scss" as *;
+@use "./module.scss" as *;
 @use "./utilities.scss" as *;
 
 * {
@@ -22,6 +23,12 @@ svg {
     width: 24px;
 
     fill: #ffffff;
+}
+
+input {
+    border: none;
+
+    font-family: inherit;
 }
 
 .container {

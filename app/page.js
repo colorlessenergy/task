@@ -1,3 +1,9 @@
+import AddTaskInput from "./_components/AddTaskInput";
+
 export default function Home() {
-    return <div>tasks</div>;
+    return (
+        <div>
+            <AddTaskInput />
+        </div>
+    );
 }
