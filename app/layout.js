@@ -1,5 +1,5 @@
 import { Roboto_Mono, Glass_Antiqua } from "next/font/google";
-import "./styles/globals.scss";
+import "./_styles/globals.scss";
 
 import { TasksContextProvider } from "./_contexts/TasksContext";
 
