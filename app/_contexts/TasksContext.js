@@ -2,29 +2,17 @@
 
 import { createContext, useContext, useState } from "react";
 
+import {
+    getIdFromlocalStorage,
+    getTasksFromLocalStorage,
+} from "../_utilities/tasks";
+
 const TasksContext = createContext();
 
 export const TasksContextProvider = ({ children }) => {
-    const [tasks, setTasks] = useState([
-        {
-            active: true,
-            list: "personal",
-            tasks: [
-                {
-                    id: 0,
-                    task: "drink water",
-                    done: false,
-                },
-                {
-                    id: 1,
-                    task: "read",
-                    done: false,
-                },
-            ],
-        },
-    ]);
+    const [tasks, setTasks] = useState(getTasksFromLocalStorage());
 
-    const [id, setId] = useState(2);
+    const [id, setId] = useState(getIdFromlocalStorage());
 
     return (
         <TasksContext.Provider value={{ tasks, setTasks, id, setId }}>
