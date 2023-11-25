@@ -7,3 +7,24 @@
     background-color: $light-purple;
     color: #ffffff;
 }
+
+.lists-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.list-item {
+    display: flex;
+    align-items: center;
+}
+
+.list-text {
+    margin-left: 4px;
+
+    font-size: 20px;
+}
+
+.button-svg {
+    height: 24px;
+}
