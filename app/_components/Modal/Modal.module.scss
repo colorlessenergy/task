@@ -1,0 +1,28 @@
+.modal-container {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal {
+    height: 100%;
+    width: 80%;
+    padding: 8px;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    background-color: #000000;
+}
+
+.modal-open {
+    display: block;
+}
+
+.modal-close {
+    display: none;
+}
