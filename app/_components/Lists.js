@@ -3,10 +3,24 @@ import { useState } from "react";
 import AddListForm from "./Lists/AddListForm";
 import { useTasksContext } from "../_contexts/TasksContext";
 
-const List = () => {
-    const { tasks } = useTasksContext();
+const List = ({ toggleModal }) => {
+    const { tasks, setTasks } = useTasksContext();
 
     const [addList, setAddList] = useState(false);
+
+    const selectList = (index) => {
+        let cloneTasks = JSON.parse(JSON.stringify(tasks));
+        const currentListIndex = cloneTasks.findIndex((list) => list.active);
+        cloneTasks[currentListIndex].active = false;
+
+        cloneTasks[index].active = true;
+
+        localStorage.setItem("tasks", JSON.stringify(cloneTasks));
+
+        setTasks(cloneTasks);
+
+        toggleModal();
+    };
 
     return (
         <div>
@@ -44,9 +58,11 @@ const List = () => {
                                         </svg>
                                     </button>
 
-                                    <span className="list-text">
+                                    <button
+                                        onClick={() => selectList(index)}
+                                        className="list-text">
                                         {list.list}
-                                    </span>
+                                    </button>
                                 </div>
                             );
                         })}

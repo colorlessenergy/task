@@ -33,7 +33,7 @@ export default function Home() {
             <Tasks />
 
             <Modal isOpen={isOpen} toggleModal={toggleModal}>
-                <List />
+                <List toggleModal={toggleModal} />
             </Modal>
         </div>
     );
