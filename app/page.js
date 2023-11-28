@@ -7,6 +7,7 @@ import AddTaskInput from "./_components/AddTaskInput";
 import Tasks from "./_components/Tasks";
 import Modal from "./_components/Modal/Modal";
 import List from "./_components/Lists";
+import { useTasksContext } from "./_contexts/TasksContext";
 
 const glassAntiqua = Glass_Antiqua({ subsets: ["latin"], weight: "400" });
 
@@ -15,6 +16,9 @@ export default function Home() {
     const toggleModal = () => {
         setIsOpen((previousIsOpen) => !previousIsOpen);
     };
+
+    const { tasks } = useTasksContext();
+    const activeTasksList = tasks.find((list) => list.active);
 
     return (
         <div>
@@ -25,7 +29,9 @@ export default function Home() {
                     </svg>
                 </button>
 
-                <span className={glassAntiqua.className}>personal</span>
+                <span className={glassAntiqua.className}>
+                    {activeTasksList.list}
+                </span>
             </nav>
 
             <AddTaskInput />
