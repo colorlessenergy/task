@@ -26,7 +26,7 @@ const List = () => {
 
             <div className="mt-2">
                 {addList ? (
-                    <AddListForm />
+                    <AddListForm setAddList={setAddList} />
                 ) : (
                     tasks.map((list, index) => {
                         return (
