@@ -1,5 +1,6 @@
 import { useState } from "react";
 
+import AddListForm from "./Lists/AddListForm";
 import { useTasksContext } from "../_contexts/TasksContext";
 
 const List = () => {
@@ -25,16 +26,7 @@ const List = () => {
 
             <div className="mt-2">
                 {addList ? (
-                    <div className="add-list-container">
-                        <label htmlFor="add-list">add list</label>
-                        <input
-                            type="text"
-                            id="add-list"
-                            className="add-list-input mt-2"
-                        />
-
-                        <button className="add-list-button mt-2">add</button>
-                    </div>
+                    <AddListForm />
                 ) : (
                     tasks.map((list, index) => {
                         return (
