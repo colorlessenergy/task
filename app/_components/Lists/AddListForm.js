@@ -38,17 +38,19 @@ const AddListForm = ({ setAddList }) => {
                 lists
             </button>
 
-            <form onSubmit={handleSubmit} className="add-list-form">
+            <form onSubmit={handleSubmit} className="list-form">
                 <label htmlFor="add-list">add list</label>
                 <input
                     type="text"
                     id="add-list"
                     value={list}
                     onChange={handleChange}
-                    className="add-list-input mt-2"
+                    className="list-form-input mt-2"
                 />
 
-                <button className="add-list-button mt-2">add</button>
+                <button className="list-form-button list-form-button-green mt-2">
+                    add
+                </button>
             </form>
         </div>
     );

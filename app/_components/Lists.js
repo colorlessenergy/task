@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 import AddListForm from "./Lists/AddListForm";
+import EditListForm from "./Lists/EditListForm";
 import { useTasksContext } from "../_contexts/TasksContext";
 
 const List = ({ toggleModal }) => {
@@ -22,10 +23,14 @@ const List = ({ toggleModal }) => {
         toggleModal();
     };
 
+    const [editList, setEditList] = useState(false);
+
     return (
         <div>
             {addList ? (
                 <AddListForm setAddList={setAddList} />
+            ) : editList ? (
+                <EditListForm editList={editList} setEditList={setEditList} />
             ) : (
                 <div>
                     <div className="lists-header">
@@ -50,7 +55,11 @@ const List = ({ toggleModal }) => {
                         {tasks.map((list, index) => {
                             return (
                                 <div key={index} className="list-item">
-                                    <button className="button-svg">
+                                    <button
+                                        onClick={() =>
+                                            setEditList({ ...list, index })
+                                        }
+                                        className="button-svg">
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"
                                             viewBox="0 0 24 24">

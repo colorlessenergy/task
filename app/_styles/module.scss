@@ -30,12 +30,12 @@
     height: 24px;
 }
 
-.add-list-form {
+.list-form {
     display: flex;
     flex-direction: column;
 }
 
-.add-list-input {
+.list-form-input {
     border-bottom: 1px solid #ffffff;
     padding-bottom: 4px;
 
@@ -44,13 +44,24 @@
     font-size: 16px;
 }
 
-.add-list-button {
+.list-form-button {
     border-radius: 5px;
     padding: 10px 0;
 
-    background-color: $green;
     color: #ffffff;
     font-size: 16px;
+}
+
+.list-form-button-green {
+    background-color: $green;
+}
+
+.list-form-button-blue {
+    background-color: $blue;
+}
+
+.list-form-button-red {
+    background-color: $red;
 }
 
 .back-button {
