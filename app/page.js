@@ -1,15 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import { Glass_Antiqua } from "next/font/google";
 
 import AddTaskInput from "./_components/AddTaskInput";
 import Tasks from "./_components/Tasks";
 import Modal from "./_components/Modal/Modal";
 import List from "./_components/Lists";
 import { useTasksContext } from "./_contexts/TasksContext";
-
-const glassAntiqua = Glass_Antiqua({ subsets: ["latin"], weight: "400" });
 
 export default function Home() {
     const [isOpen, setIsOpen] = useState(false);
@@ -29,9 +26,7 @@ export default function Home() {
                     </svg>
                 </button>
 
-                <span className={glassAntiqua.className}>
-                    {activeTasksList.list}
-                </span>
+                {activeTasksList.list}
             </nav>
 
             <AddTaskInput />
