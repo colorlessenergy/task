@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import AddTaskInput from "./_components/AddTaskInput";
 import Tasks from "./_components/Tasks";
@@ -16,6 +16,26 @@ export default function Home() {
 
     const { tasks } = useTasksContext();
     const activeTasksList = tasks.find((list) => list.active);
+
+    useEffect(() => {
+        if (
+            typeof window !== "undefined" &&
+            "serviceWorker" in navigator &&
+            window.workbox !== undefined
+        ) {
+            const wb = window.workbox;
+            const installNewVersion = () => {
+                wb.addEventListener("controlling", () => {
+                    window.location.reload();
+                });
+
+                wb.messageSkipWaiting();
+            };
+
+            wb.addEventListener("waiting", installNewVersion);
+            wb.register();
+        }
+    }, []);
 
     return (
         <div>
