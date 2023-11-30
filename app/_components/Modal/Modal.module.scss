@@ -26,3 +26,9 @@
 .modal-close {
     display: none;
 }
+
+@media (min-width: 800px) {
+    .modal {
+        width: 40%;
+    }
+}
