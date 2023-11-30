@@ -17,14 +17,23 @@
     left: 0;
 
     background-color: #000000;
+    transition: transform 0.2s ease-in;
 }
 
 .modal-open {
-    display: block;
+    visibility: visible;
 }
 
 .modal-close {
-    display: none;
+    visibility: hidden;
+}
+
+.modal-open .modal {
+    transform: translateX(0);
+}
+
+.modal-close .modal {
+    transform: translateX(-1000px);
 }
 
 @media (min-width: 800px) {
