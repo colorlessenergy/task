@@ -12,7 +12,9 @@ const List = ({ toggleModal }) => {
     const selectList = (index) => {
         let cloneTasks = JSON.parse(JSON.stringify(tasks));
         const currentListIndex = cloneTasks.findIndex((list) => list.active);
-        cloneTasks[currentListIndex].active = false;
+        if (currentListIndex !== -1) {
+            cloneTasks[currentListIndex].active = false;
+        }
 
         cloneTasks[index].active = true;
 

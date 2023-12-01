@@ -19,7 +19,7 @@ const Tasks = () => {
 
     return (
         <div className="mt-2">
-            {tasksList.tasks.map((task, index) => {
+            {tasksList?.tasks.map((task, index) => {
                 return (
                     <div key={task.id} className="mb-1">
                         <input

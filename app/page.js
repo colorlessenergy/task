@@ -46,7 +46,7 @@ export default function Home() {
                     </svg>
                 </button>
 
-                {activeTasksList.list}
+                {activeTasksList?.list}
             </nav>
 
             <AddTaskInput />
