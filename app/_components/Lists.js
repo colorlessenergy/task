@@ -30,7 +30,10 @@ const List = ({ toggleModal }) => {
     return (
         <div>
             {addList ? (
-                <AddListForm setAddList={setAddList} />
+                <AddListForm
+                    setAddList={setAddList}
+                    toggleModal={toggleModal}
+                />
             ) : editList ? (
                 <EditListForm editList={editList} setEditList={setEditList} />
             ) : (

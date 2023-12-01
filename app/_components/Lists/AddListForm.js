@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 
 import { useTasksContext } from "@/app/_contexts/TasksContext";
 
-const AddListForm = ({ setAddList }) => {
+const AddListForm = ({ setAddList, toggleModal }) => {
     const [list, setList] = useState("");
     const handleChange = (event) => {
         setList(event.currentTarget.value);
@@ -15,8 +15,14 @@ const AddListForm = ({ setAddList }) => {
         if (list === "") return;
 
         let cloneTasks = JSON.parse(JSON.stringify(tasks));
+
+        const currentListIndex = cloneTasks.findIndex((list) => list.active);
+        if (currentListIndex !== -1) {
+            cloneTasks[currentListIndex].active = false;
+        }
+
         cloneTasks.push({
-            active: false,
+            active: true,
             list,
             tasks: [],
         });
@@ -24,7 +30,10 @@ const AddListForm = ({ setAddList }) => {
         localStorage.setItem("tasks", JSON.stringify(cloneTasks));
 
         setTasks(cloneTasks);
+
         setAddList(false);
+
+        toggleModal();
     };
 
     const inputRef = useRef();
