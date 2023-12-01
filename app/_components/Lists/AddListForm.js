@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { useTasksContext } from "@/app/_contexts/TasksContext";
 
@@ -27,6 +27,11 @@ const AddListForm = ({ setAddList }) => {
         setAddList(false);
     };
 
+    const inputRef = useRef();
+    useEffect(() => {
+        inputRef.current.focus();
+    }, []);
+
     return (
         <div>
             <button
@@ -45,6 +50,7 @@ const AddListForm = ({ setAddList }) => {
                     id="add-list"
                     value={list}
                     onChange={handleChange}
+                    ref={inputRef}
                     className="list-form-input mt-2"
                 />
 
