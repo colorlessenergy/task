@@ -8,13 +8,15 @@
     color: #ffffff;
 }
 
-.lists-header {
+.lists-header,
+.task {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-.list-item {
+.list-item,
+.task-form {
     display: flex;
     align-items: center;
 }
